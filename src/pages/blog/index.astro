@@ -1,0 +1,28 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog", ({ data }) => !data.draft);
+posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout title="Blog">
+  <section>
+    <p class="section-label">Blog</p>
+    {posts.length === 0 && (
+      <p style="color: var(--text-secondary); font-size: 14px;">No posts yet. Check back soon!</p>
+    )}
+    <div class="blog-grid">
+      {posts.map((post) => (
+        <BlogCard
+          title={post.data.title}
+          date={post.data.date}
+          description={post.data.description}
+          tags={post.data.tags}
+          slug={post.id}
+        />
+      ))}
+    </div>
+  </section>
+</Layout>

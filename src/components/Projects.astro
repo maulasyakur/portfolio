@@ -1,0 +1,44 @@
+---
+const projects = [
+  {
+    name: "chat-app",
+    url: "https://github.com/maulasyakur/chat-app",
+    stack: "React \u00B7 TypeScript \u00B7 PocketBase",
+    desc: "Real-time chat application with live messaging via SSE subscriptions, user authentication, and role-based access control.",
+  },
+  {
+    name: "InternGate",
+    url: "https://github.com/maulasyakur",
+    stack: "Spring Boot \u00B7 React \u00B7 TypeScript",
+    desc: "Full-stack internship management system with a Java Spring Boot backend and a React/TypeScript frontend, built with a team.",
+  },
+  {
+    name: "Expense Tracker",
+    url: "https://github.com/maulasyakur",
+    stack: "React \u00B7 Tailwind CSS \u00B7 shadcn/ui",
+    desc: "Personal finance app for tracking daily spending with breakdowns and monthly trends dashboard.",
+  },
+  {
+    name: "Todo App",
+    url: "https://github.com/maulasyakur",
+    stack: "React \u00B7 Flask \u00B7 Python",
+    desc: "Full-stack task management app with a React frontend and Python Flask REST API backend.",
+  },
+];
+---
+
+<section id="projects">
+  <p class="section-label">Projects</p>
+  <div class="projects-grid">
+    {projects.map((project) => (
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">{project.name}</div>
+          <a href={project.url} target="_blank" rel="noopener" class="project-link" aria-label={`View ${project.name} on GitHub`}><i class="ti ti-arrow-up-right" aria-hidden="true"></i></a>
+        </div>
+        <div class="project-stack">{project.stack}</div>
+        <div class="project-desc">{project.desc}</div>
+      </div>
+    ))}
+  </div>
+</section>

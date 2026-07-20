@@ -1,0 +1,56 @@
+---
+const experiences = [
+  {
+    date: "Jan 2024 \u2013 Present",
+    company: "IELTSku",
+    url: "https://ieltsku.com",
+    role: "IELTS Tutor & LMS Developer",
+    bullets: [
+      "Delivering one-on-one online IELTS coaching, helping students achieve scores up to 7.5.",
+      "Building an LMS with React and Supabase to manage scheduling, materials, and student progress.",
+    ],
+  },
+  {
+    date: "Jul \u2013 Sep 2024",
+    company: "SEHSOFT",
+    url: "https://sehsoft.com",
+    role: "Frontend Intern",
+    bullets: [
+      "Contributed to the full lifecycle of business management software using React and Docker in an agile team.",
+      "Built new features and resolved production bugs, collaborating via Jira.",
+    ],
+  },
+  {
+    date: "Nov 2023 \u2013 May 2024",
+    company: "Lexica",
+    url: "https://lexica.app",
+    role: "Full Stack Web Dev Intern",
+    bullets: [
+      "Sole developer of a SaaS platform \u2014 built a payment gateway, real-time video conferencing, and a relational database from scratch.",
+      "Self-taught Next.js, React, and Firebase with no prior web development experience.",
+    ],
+  },
+];
+---
+
+<section id="experience">
+  <p class="section-label">Experience</p>
+  <div class="exp-list">
+    {experiences.map((exp) => (
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">{exp.date}</div>
+          <div class="exp-company"><a href={exp.url} target="_blank" rel="noopener">{exp.company}</a></div>
+          <div class="exp-role">{exp.role}</div>
+        </div>
+        <div class="exp-desc">
+          <ul class="exp-bullets">
+            {exp.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

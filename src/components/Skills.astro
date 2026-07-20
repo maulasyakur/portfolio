@@ -1,0 +1,36 @@
+---
+const skillGroups = [
+  {
+    label: "Frontend",
+    tags: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS"],
+  },
+  {
+    label: "Backend & DB",
+    tags: ["Supabase", "PocketBase", "Firebase", "Spring Boot", "Flask"],
+  },
+  {
+    label: "Languages",
+    tags: ["Python", "Java", "C", "C++"],
+  },
+  {
+    label: "Tools",
+    tags: ["Git", "Docker", "Jira"],
+  },
+];
+---
+
+<section id="skills">
+  <p class="section-label">Skills</p>
+  <div class="skills-grid">
+    {skillGroups.map((group) => (
+      <div>
+        <div class="skill-group-label">{group.label}</div>
+        <div class="skill-tags">
+          {group.tags.map((tag) => (
+            <span class="skill-tag">{tag}</span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

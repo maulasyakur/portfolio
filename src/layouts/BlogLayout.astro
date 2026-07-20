@@ -1,0 +1,34 @@
+---
+import BaseLayout from "./Layout.astro";
+
+export interface Props {
+  title: string;
+  date: Date;
+  tags?: string[];
+}
+
+const { title, date, tags } = Astro.props;
+const formattedDate = date.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<BaseLayout title={title}>
+  <article class="prose">
+    <a href="/blog" class="back-link">
+      <i class="ti ti-arrow-left" aria-hidden="true"></i> Back to blog
+    </a>
+    <h1>{title}</h1>
+    <div class="post-meta">
+      <time datetime={date.toISOString()}>{formattedDate}</time>
+      {tags && tags.length > 0 && (
+        <span>
+          {" "}— {tags.join(", ")}
+        </span>
+      )}
+    </div>
+    <slot />
+  </article>
+</BaseLayout>

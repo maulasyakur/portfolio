@@ -1,0 +1,124 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const experience = [
+  {
+    title: "IELTS Tutor & LMS Developer",
+    org: "IELTSku",
+    date: "Jan 2024 \u2013 Present",
+    bullets: [
+      "Delivering one-on-one online IELTS coaching, helping students achieve band scores up to 7.5.",
+      "Building an LMS with React and Supabase to manage scheduling, materials, and student progress.",
+    ],
+  },
+  {
+    title: "Frontend Intern",
+    org: "SEHSOFT",
+    date: "Jul \u2013 Sep 2024",
+    bullets: [
+      "Contributed to the full lifecycle of business management software using React and Docker in an agile team.",
+      "Built new features and resolved production bugs, collaborating via Jira.",
+    ],
+  },
+  {
+    title: "Full Stack Web Dev Intern",
+    org: "Lexica",
+    date: "Nov 2023 \u2013 May 2024",
+    bullets: [
+      "Sole developer of a SaaS platform \u2014 built a payment gateway, real-time video conferencing, and a relational database from scratch.",
+      "Self-taught Next.js, React, and Firebase with no prior web development experience.",
+    ],
+  },
+];
+
+const projects = [
+  { name: "chat-app", stack: "React \u00B7 TypeScript \u00B7 PocketBase" },
+  { name: "InternGate", stack: "Spring Boot \u00B7 React \u00B7 TypeScript" },
+  { name: "Expense Tracker", stack: "React \u00B7 Tailwind CSS \u00B7 shadcn/ui" },
+  { name: "Todo App", stack: "React \u00B7 Flask \u00B7 Python" },
+];
+
+const skills = [
+  "React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS",
+  "Supabase", "PocketBase", "Firebase", "Spring Boot", "Flask",
+  "Python", "Java", "C", "C++", "Git", "Docker", "Jira",
+];
+---
+
+<Layout title="Resume">
+  <div class="resume-page">
+    <h1>Maula Ahmad Syakur</h1>
+    <p class="resume-subtitle">
+      <a href="mailto:maulaahmad18@gmail.com">maulaahmad18@gmail.com</a>
+      {" \u00B7 "}
+      <a href="https://linkedin.com/in/maula-ahmad-syakur-b34237224" target="_blank" rel="noopener">LinkedIn</a>
+      {" \u00B7 "}
+      <a href="https://github.com/maulasyakur" target="_blank" rel="noopener">GitHub</a>
+      {" \u00B7 "}Ankara, T&uuml;rkiye
+    </p>
+
+    <div class="resume-section">
+      <h2>About</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7;">
+        Frontend Developer and Computer Engineering student at Hacettepe University.
+        Passionate about building clean, user-facing web products. Experienced with React,
+        TypeScript, and modern full-stack tools across startups and agile teams.
+      </p>
+    </div>
+
+    <div class="resume-section">
+      <h2>Experience</h2>
+      {experience.map((exp) => (
+        <div class="resume-item">
+          <h3>{exp.title}</h3>
+          <h4>{exp.org} — {exp.date}</h4>
+          <ul>
+            {exp.bullets.map((b) => <li>{b}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="resume-section">
+      <h2>Projects</h2>
+      {projects.map((p) => (
+        <div class="resume-item">
+          <h3>{p.name}</h3>
+          <p>{p.stack}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="resume-section">
+      <h2>Education</h2>
+      <div class="resume-item">
+        <h3>Computer Engineering</h3>
+        <h4>Hacettepe University — Ankara, T&uuml;rkiye</h4>
+        <p>Currently enrolled.</p>
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <h2>Skills</h2>
+      <div class="skill-tags" style="margin-top: 0.5rem;">
+        {skills.map((s) => <span class="skill-tag">{s}</span>)}
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <h2>Languages</h2>
+      <div class="resume-item">
+        <h3>Indonesian</h3>
+        <p>Native</p>
+      </div>
+      <div class="resume-item">
+        <h3>English</h3>
+        <p>Professional working proficiency</p>
+      </div>
+      <div class="resume-item">
+        <h3>Turkish</h3>
+        <p>Professional working proficiency</p>
+      </div>
+    </div>
+  </div>
+</Layout>
