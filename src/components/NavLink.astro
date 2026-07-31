@@ -1,0 +1,30 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+// Extend HTMLAttributes so it accepts any valid <a> tag attribute (id, data-*, aria-*, etc.)
+interface Props extends HTMLAttributes<'a'> {
+  href: string;
+}
+
+// Destructure href and class. 
+// We rename 'class' to 'className' because 'class' is a reserved word in JavaScript.
+const { href, class: className, ...rest } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+
+// Remove leading slash to prevent double slashes
+const cleanHref = href.startsWith('/') ? href.slice(1) : href;
+const finalHref = `${base}${cleanHref}`;
+
+// Check if this is the active page
+const isActive = Astro.url.pathname === finalHref || 
+                 Astro.url.pathname === `${finalHref}/`;
+---
+
+<a 
+  href={finalHref} 
+  class:list={['nav-link', className, { active: isActive }]}
+  {...rest}
+>
+  <slot />
+</a>
