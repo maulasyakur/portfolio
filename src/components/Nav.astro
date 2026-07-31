@@ -10,4 +10,18 @@ import NavLink from './NavLink.astro';
     <NavLink href="/blog/">Blog</NavLink>
     <NavLink href="/#contact">Contact</NavLink>
   </div>
+  <button class="theme-toggle" type="button" aria-label="Toggle theme">
+    <i class="ti ti-sun" aria-hidden="true"></i>
+    <i class="ti ti-moon" aria-hidden="true"></i>
+  </button>
 </nav>
+
+<script>
+  const toggle = document.querySelector(".theme-toggle");
+  toggle?.addEventListener("click", () => {
+    const root = document.documentElement;
+    const next = root.dataset.theme === "dark" ? "light" : "dark";
+    root.dataset.theme = next;
+    localStorage.setItem("theme", next);
+  });
+</script>

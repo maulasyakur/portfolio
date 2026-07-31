@@ -25,6 +25,13 @@ const base = import.meta.env.BASE_URL;
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
     <title>{pageTitle}</title>
+    <script is:inline>
+      (() => {
+        const stored = localStorage.getItem("theme");
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = stored || (systemDark ? "dark" : "light");
+      })();
+    </script>
   </head>
   <body>
     <Nav />
