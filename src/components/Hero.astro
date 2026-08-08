@@ -1,3 +1,7 @@
+---
+import NavLink from './NavLink.astro';
+---
+
 <section id="hero">
   <p class="hero-label">Frontend Developer & CE Student</p>
   <h1 class="hero-name">Maula Ahmad<br /><em>Syakur</em></h1>
@@ -5,7 +9,7 @@
     I build clean, user-facing web products. Currently studying Computer Engineering at Hacettepe University in Ankara, with 2+ years of professional React experience across startups and agile teams.
   </p>
   <div class="hero-links">
-    <a href="portfolio/resume" class="btn btn-primary"><i class="ti ti-file-cv" aria-hidden="true"></i> View Resume</a>
+    <NavLink href="/resume" class="btn btn-primary"><i class="ti ti-file-cv" aria-hidden="true"></i> View Resume</NavLink>
     <a href="https://github.com/maulasyakur" target="_blank" rel="noopener" class="btn"><i class="ti ti-brand-github" aria-hidden="true"></i> GitHub</a>
     <a href="https://linkedin.com/in/maula-ahmad-syakur-b34237224" target="_blank" rel="noopener" class="btn"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
   </div>
